@@ -17,4 +17,8 @@
     <string name="point">.</string>
     <string name="_0">0</string>
     <string name="equal">=</string>
+    <string name="multiply">multiply</string>
+    <string name="division">division</string>
+    <string name="backspace">backspace</string>
+    <string name="background">background</string>
 </resources>
