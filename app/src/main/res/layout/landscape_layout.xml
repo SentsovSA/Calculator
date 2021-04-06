@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/lightBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/background"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background_light"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <ImageView
+        android:id="@+id/nightBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/background"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="30dp" />
+
+    <TextView
+        android:id="@+id/resultField"
+        android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/result"
+        android:textColor="@color/white"
+        android:textSize="@dimen/strings_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/nightBackground"
+        app:layout_constraintEnd_toEndOf="@+id/nightBackground"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nightBackground"
+        app:layout_constraintTop_toTopOf="@+id/nightBackground"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/operationField"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/text_view_height"
+        android:text="@string/operand"
+        android:textColor="@color/white"
+        android:textSize="@dimen/strings_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/numberField"
+        app:layout_constraintEnd_toEndOf="@+id/nightBackground"
+        app:layout_constraintStart_toEndOf="@+id/division"
+        app:layout_constraintTop_toBottomOf="@+id/resultField" />
+
+    <EditText
+        android:id="@+id/numberField"
+        android:layout_width="wrap_content"
+        android:layout_height="68dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="2dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="@dimen/strings_text_size"
+        app:layout_constraintWidth_max="306dp"
+        app:layout_constraintEnd_toEndOf="@+id/nightBackground"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toEndOf="@+id/minus"
+        app:layout_constraintTop_toBottomOf="@+id/resultField" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/clear"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/DeepSkyBlue"
+        android:onClick="clear"
+        android:text="@string/ac"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/division"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultField"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_weight="1" />
+
+    <ImageButton
+        android:id="@+id/backspace"
+        android:layout_marginStart="@dimen/btn_margin_top_start_end"
+        android:src="@drawable/ic_baseline_backspace_24"
+        app:layout_constraintBottom_toBottomOf="@+id/clear"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/clear"
+        android:onClick="backspace"
+        app:layout_constraintTop_toTopOf="@+id/clear"
+        app:layout_constraintVertical_weight="1"
+        android:contentDescription="@string/backspace"
+        style="@style/OperationButtonStyle"/>
+
+
+    <ImageButton
+        android:id="@+id/percent"
+        android:layout_marginStart="@dimen/btn_margin_top_start_end"
+        android:src="@drawable/ic_percent_sign"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintVertical_weight="1"
+        android:onClick="onOperationClick"
+        app:layout_constraintStart_toEndOf="@+id/backspace"
+        app:layout_constraintTop_toTopOf="@+id/backspace"
+        android:contentDescription="@string/percent"
+        style="@style/OperationButtonStyle"/>
+
+    <ImageButton
+        android:id="@+id/division"
+        style="@style/OperationButtonStyle"
+        android:layout_marginStart="@dimen/btn_margin_top_start_end"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="@dimen/btn_margin_top_start_end"
+        android:contentDescription="@string/division"
+        android:src="@drawable/ic_division_sign"
+        android:onClick="onOperationClick"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.003"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/percent"
+        app:layout_constraintTop_toBottomOf="@+id/resultField"
+        app:layout_constraintVertical_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_7"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_7"
+        app:layout_constraintEnd_toEndOf="@+id/clear"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/clear"
+        app:layout_constraintTop_toBottomOf="@+id/clear"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_8"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:layout_marginStart="@dimen/btn_margin_top_start_end"
+        android:text="@string/_8"
+        app:layout_constraintEnd_toStartOf="@+id/button_9"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toEndOf="@+id/button_7"
+        app:layout_constraintTop_toBottomOf="@+id/backspace"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_9"
+        android:layout_marginStart="@dimen/btn_margin_top_start_end"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_9"
+        app:layout_constraintEnd_toEndOf="@+id/percent"
+        android:onClick="onNumberClick"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/button_8"
+        app:layout_constraintTop_toBottomOf="@+id/percent"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+
+    <ImageButton
+        android:id="@+id/multiplication"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:src="@drawable/ic_multiply_sign"
+        app:layout_constraintEnd_toEndOf="@+id/division"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onOperationClick"
+        app:layout_constraintTop_toBottomOf="@+id/division"
+        app:layout_constraintVertical_weight="1"
+        android:contentDescription="@string/multiplication"
+        style="@style/OperationButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_4"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_4"
+        app:layout_constraintEnd_toEndOf="@+id/button_7"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_7"
+        app:layout_constraintTop_toBottomOf="@+id/button_7"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_5"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_5"
+        app:layout_constraintEnd_toEndOf="@+id/button_8"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_8"
+        app:layout_constraintTop_toBottomOf="@+id/button_8"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_6"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_6"
+        app:layout_constraintEnd_toEndOf="@+id/button_9"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_9"
+        app:layout_constraintTop_toBottomOf="@+id/button_9"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+
+    <ImageButton
+        android:id="@+id/minus"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:src="@drawable/ic_minus_sign"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onOperationClick"
+        app:layout_constraintStart_toStartOf="@+id/multiplication"
+        app:layout_constraintTop_toBottomOf="@+id/multiplication"
+        app:layout_constraintVertical_weight="1"
+        android:contentDescription="@string/minus"
+        style="@style/OperationButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_1"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_1"
+        app:layout_constraintEnd_toEndOf="@+id/button_4"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_4"
+        app:layout_constraintTop_toBottomOf="@+id/button_4"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_2"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_2"
+        app:layout_constraintEnd_toEndOf="@+id/button_5"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_5"
+        app:layout_constraintTop_toBottomOf="@+id/button_5"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_3"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_3"
+        app:layout_constraintEnd_toEndOf="@+id/button_6"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_6"
+        app:layout_constraintTop_toBottomOf="@+id/button_6"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <ImageButton
+        android:id="@+id/plus"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:src="@drawable/ic_plus_sign"
+        android:scaleType="fitCenter"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onOperationClick"
+        app:layout_constraintStart_toStartOf="@+id/minus"
+        app:layout_constraintTop_toBottomOf="@+id/minus"
+        app:layout_constraintVertical_weight="1"
+        android:contentDescription="@string/plus"
+        style="@style/OperationButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/point"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/point"
+        android:layout_marginBottom="@dimen/btn_margin_bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/nightBackground"
+        app:layout_constraintEnd_toEndOf="@+id/button_1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_1"
+        app:layout_constraintTop_toBottomOf="@+id/button_1"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_0"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:text="@string/_0"
+        android:layout_marginBottom="@dimen/btn_margin_bottom"
+        app:layout_constraintBottom_toBottomOf="@+id/nightBackground"
+        app:layout_constraintEnd_toEndOf="@+id/button_2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="1"
+        android:onClick="onNumberClick"
+        app:layout_constraintStart_toStartOf="@+id/button_2"
+        app:layout_constraintTop_toBottomOf="@+id/button_2"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_weight="1"
+        style="@style/NumberButtonStyle"/>
+
+    <ImageButton
+        android:id="@+id/equals"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginTop="@dimen/btn_margin_top_start_end"
+        android:layout_marginBottom="@dimen/btn_margin_bottom"
+        android:backgroundTint="@color/DodgerBlue"
+        android:contentDescription="@string/equal"
+        android:onClick="onOperationClick"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_equal_sign"
+        app:layout_constraintBottom_toBottomOf="@+id/nightBackground"
+        app:layout_constraintEnd_toEndOf="@+id/plus"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="@+id/button_3"
+        app:layout_constraintTop_toBottomOf="@+id/plus"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_weight="1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
