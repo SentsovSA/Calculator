@@ -8,13 +8,21 @@
     <string name="_4">4</string>
     <string name="_5">5</string>
     <string name="_6">6</string>
-    <string name="minus">-</string>
     <string name="percent">%</string>
     <string name="_1">1</string>
     <string name="_2">2</string>
     <string name="_3">3</string>
-    <string name="plus">+</string>
     <string name="point">.</string>
     <string name="_0">0</string>
     <string name="equal">=</string>
+    <string name="backspace">backspace</string>
+    <string name="background">background</string>
+    <string name="result">Результат</string>
+    <string name="operand">Операция</string>
+    <string name="division">/</string>
+    <string name="multiplication">*</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="theme_choose">Choose theme</string>
+    <string name="light_theme">Light theme</string>
 </resources>

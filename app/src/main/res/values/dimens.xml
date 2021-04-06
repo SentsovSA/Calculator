@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="button_text_size">20sp</dimen>
+    <dimen name="strings_text_size">35sp</dimen>
+    <dimen name="text_view_height">70dp</dimen>
+    <dimen name="button_width">90dp</dimen>
+    <dimen name="button_height">48dp</dimen>
+    <dimen name="btn_margin_top_start_end">10dp</dimen>
+    <dimen name="btn_margin_bottom">35dp</dimen>
+    <dimen name="text_view_margin_start">5dp</dimen>
+</resources>
